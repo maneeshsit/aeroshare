@@ -1,6 +1,6 @@
-
 import { useState } from 'react';
 import { Calendar, MapPin, Users, Clock } from 'lucide-react';
+import { locations } from '../data/locations';
 
 const Booking = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +16,9 @@ const Booking = () => {
     message: ''
   });
 
+  const [showDepartureSuggestions, setShowDepartureSuggestions] = useState(false);
+  const [showDestinationSuggestions, setShowDestinationSuggestions] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Booking submitted:', formData);
@@ -28,6 +31,14 @@ const Booking = () => {
       [e.target.name]: e.target.value
     });
   };
+
+  const filteredDepartureLocations = locations.filter(location =>
+    location.toLowerCase().includes(formData.departure.toLowerCase())
+  );
+
+  const filteredDestinationLocations = locations.filter(location =>
+    location.toLowerCase().includes(formData.destination.toLowerCase())
+  );
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
@@ -45,7 +56,7 @@ const Booking = () => {
         <div className="max-w-4xl mx-auto">
           <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div className="space-y-2">
+              <div className="space-y-2 relative">
                 <label className="text-sm font-semibold text-gray-700 flex items-center">
                   <MapPin size={16} className="mr-2 text-blue-600" />
                   Departure Location
@@ -55,13 +66,31 @@ const Booking = () => {
                   name="departure"
                   value={formData.departure}
                   onChange={handleChange}
+                  onFocus={() => setShowDepartureSuggestions(true)}
+                  onBlur={() => setTimeout(() => setShowDepartureSuggestions(false), 200)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   placeholder="Enter departure location"
                   required
                 />
+                {showDepartureSuggestions && formData.departure && (
+                  <div className="absolute top-full left-0 right-0 bg-white rounded-lg shadow-lg mt-1 max-h-40 overflow-y-auto z-10 border">
+                    {filteredDepartureLocations.slice(0, 5).map((location) => (
+                      <div
+                        key={location}
+                        onClick={() => {
+                          setFormData({...formData, departure: location});
+                          setShowDepartureSuggestions(false);
+                        }}
+                        className="p-3 hover:bg-gray-100 cursor-pointer text-gray-900 text-sm"
+                      >
+                        {location}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-2 relative">
                 <label className="text-sm font-semibold text-gray-700 flex items-center">
                   <MapPin size={16} className="mr-2 text-blue-600" />
                   Destination
@@ -71,10 +100,28 @@ const Booking = () => {
                   name="destination"
                   value={formData.destination}
                   onChange={handleChange}
+                  onFocus={() => setShowDestinationSuggestions(true)}
+                  onBlur={() => setTimeout(() => setShowDestinationSuggestions(false), 200)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   placeholder="Enter destination"
                   required
                 />
+                {showDestinationSuggestions && formData.destination && (
+                  <div className="absolute top-full left-0 right-0 bg-white rounded-lg shadow-lg mt-1 max-h-40 overflow-y-auto z-10 border">
+                    {filteredDestinationLocations.slice(0, 5).map((location) => (
+                      <div
+                        key={location}
+                        onClick={() => {
+                          setFormData({...formData, destination: location});
+                          setShowDestinationSuggestions(false);
+                        }}
+                        className="p-3 hover:bg-gray-100 cursor-pointer text-gray-900 text-sm"
+                      >
+                        {location}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div className="space-y-2">

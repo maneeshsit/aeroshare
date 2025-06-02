@@ -23,7 +23,7 @@ const Header = () => {
             <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
             <a href="#fleet" className="text-gray-700 hover:text-blue-600 transition-colors">HX50</a>
             <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
-            <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">Company</a>
+            <a href="https://www.hillhelicopters.com/company/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600 transition-colors">Company</a>
             <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
             <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
               Get Quote
@@ -46,7 +46,7 @@ const Header = () => {
               <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
               <a href="#fleet" className="text-gray-700 hover:text-blue-600 transition-colors">HX50</a>
               <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
-              <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">Company</a>
+              <a href="https://www.hillhelicopters.com/company/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600 transition-colors">Company</a>
               <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
               <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors w-fit">
                 Get Quote
