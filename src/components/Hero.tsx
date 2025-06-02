@@ -8,30 +8,30 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1487887235947-a955ef187fcc?ixlib=rb-4.0.3&auto=format&fit=crop&w=3498&q=80')`
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://www.hillhelicopters.com/wp-content/uploads/2023/05/HX50-Exterior-7.jpg')`
         }}
       />
       
       {/* Content */}
       <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-          Premium Helicopter
+          Hill Helicopters
           <span className="block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            Charter Service
+            HX50 Experience
           </span>
         </h1>
         
         <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed animate-fade-in">
-          Experience the ultimate in luxury travel with Hill Helicopters. 
-          Book premium helicopter charters for business, leisure, or special occasions.
+          Experience the future of helicopter aviation with the revolutionary HX50. 
+          British engineering excellence meets cutting-edge technology and unparalleled safety.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
-            Book Your Flight
+            Discover HX50
           </button>
           <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105">
-            View Our Fleet
+            Watch Demo Flight
           </button>
         </div>
 
@@ -88,7 +88,7 @@ const Hero = () => {
           </div>
 
           <button className="w-full mt-6 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-[1.02]">
-            Search Available Flights
+            Request Quote
           </button>
         </div>
       </div>

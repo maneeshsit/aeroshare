@@ -1,31 +1,31 @@
 
-import { Briefcase, Heart, Camera, Shield } from 'lucide-react';
+import { Briefcase, Heart, Camera, Shield, Wrench, GraduationCap } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
       icon: Briefcase,
-      title: "Executive Transport",
-      description: "Fast, efficient travel for business executives and corporate events.",
-      features: ["Airport transfers", "Meeting transportation", "Multi-city tours", "VIP service"]
+      title: "Commercial Operations",
+      description: "Advanced helicopter solutions for commercial aviation and business transport.",
+      features: ["Executive transport", "Corporate charters", "VIP services", "Multi-city operations"]
     },
     {
-      icon: Heart,
-      title: "Special Occasions",
-      description: "Make your special moments unforgettable with luxury helicopter services.",
-      features: ["Wedding transport", "Anniversary flights", "Proposal flights", "Date experiences"]
+      icon: Wrench,
+      title: "Maintenance & Support",
+      description: "Comprehensive maintenance services and technical support for Hill Helicopters.",
+      features: ["Scheduled maintenance", "Technical support", "Parts supply", "Field service"]
     },
     {
-      icon: Camera,
-      title: "Scenic Tours",
-      description: "Experience breathtaking aerial views of stunning landscapes and cityscapes.",
-      features: ["City skyline tours", "Coastal flights", "Mountain expeditions", "Photography tours"]
+      icon: GraduationCap,
+      title: "Training & Certification",
+      description: "Professional pilot training programs for the revolutionary HX50 helicopter.",
+      features: ["Type rating courses", "Simulator training", "Recurrent training", "Instructor certification"]
     },
     {
       icon: Shield,
-      title: "Emergency Services",
-      description: "24/7 emergency helicopter services for urgent transportation needs.",
-      features: ["Medical transport", "Emergency evacuation", "Search and rescue", "Disaster response"]
+      title: "Safety & Innovation",
+      description: "Leading the industry in helicopter safety through cutting-edge technology.",
+      features: ["Fly-by-wire systems", "Autonomous flight", "Safety research", "Technology development"]
     }
   ];
 
@@ -37,12 +37,12 @@ const Services = () => {
             Our Services
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From executive transport to scenic tours, we provide comprehensive helicopter services 
-            tailored to your specific needs with uncompromising safety and luxury.
+            Hill Helicopters provides comprehensive solutions from revolutionary aircraft manufacturing 
+            to world-class training and support services.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {services.map((service, index) => (
             <div key={index} className="text-center group hover:transform hover:-translate-y-2 transition-all duration-300">
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 mb-6 group-hover:shadow-xl transition-shadow">
@@ -65,6 +65,28 @@ const Services = () => {
               </button>
             </div>
           ))}
+        </div>
+
+        <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-8 md:p-12 text-white text-center">
+          <h3 className="text-3xl font-bold mb-4">Pioneering the Future of Aviation</h3>
+          <p className="text-xl mb-8 max-w-3xl mx-auto">
+            With over a decade of research and development, Hill Helicopters is revolutionizing 
+            helicopter technology with the world's first fly-by-wire commercial helicopter.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <div className="text-4xl font-bold mb-2">10+</div>
+              <div className="text-blue-100">Years of R&D</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">£50M+</div>
+              <div className="text-blue-100">Investment</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold mb-2">100+</div>
+              <div className="text-blue-100">Team Members</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
