@@ -10,7 +10,9 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <span className="text-xl font-bold text-gray-900">Aerospace</span>
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent tracking-tight">
+              Aeroshare
+            </span>
           </div>
 
           {/* Desktop Navigation */}
