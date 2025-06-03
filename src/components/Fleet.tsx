@@ -1,3 +1,4 @@
+
 import { Clock, Users, Gauge, Shield, Zap, Award, Plane, Settings, Heart } from 'lucide-react';
 import { useState } from 'react';
 import HX50Modal from './HX50Modal';
@@ -11,8 +12,10 @@ const Fleet = () => {
       name: "HX50",
       image: "/lovable-uploads/425c5c10-5eb3-4944-af22-17ce47ed954d.png",
       passengers: "5",
-      range: "400+ nm", 
-      speed: "140+ kts",
+      range: "700 nm", 
+      speed: "140 kts",
+      horsepower: "500 shp",
+      payload: "1760 lbs",
       description: "The world's first commercially certified helicopter with fly-by-wire flight controls and autonomous flight capability. A revolutionary step forward in helicopter safety and performance.",
       features: [
         "Fly-by-wire flight controls", 
@@ -98,7 +101,7 @@ const Fleet = () => {
                   </h3>
                   <p className="text-gray-600 mb-8 text-lg leading-relaxed">{heli.description}</p>
                   
-                  <div className="grid grid-cols-3 gap-6 mb-8">
+                  <div className="grid grid-cols-2 gap-4 mb-8">
                     <div className="text-center p-4 bg-blue-50 rounded-xl">
                       <Users className="mx-auto mb-3 text-blue-600" size={28} />
                       <div className="text-sm text-gray-500 mb-1">Passengers</div>
@@ -106,14 +109,24 @@ const Fleet = () => {
                     </div>
                     <div className="text-center p-4 bg-blue-50 rounded-xl">
                       <Gauge className="mx-auto mb-3 text-blue-600" size={28} />
-                      <div className="text-sm text-gray-500 mb-1">Range</div>
+                      <div className="text-sm text-gray-500 mb-1">Max Range</div>
                       <div className="font-bold text-xl text-gray-900">{heli.range}</div>
                     </div>
                     <div className="text-center p-4 bg-blue-50 rounded-xl">
                       <Clock className="mx-auto mb-3 text-blue-600" size={28} />
-                      <div className="text-sm text-gray-500 mb-1">Speed</div>
+                      <div className="text-sm text-gray-500 mb-1">Cruise Speed</div>
                       <div className="font-bold text-xl text-gray-900">{heli.speed}</div>
                     </div>
+                    <div className="text-center p-4 bg-blue-50 rounded-xl">
+                      <Settings className="mx-auto mb-3 text-blue-600" size={28} />
+                      <div className="text-sm text-gray-500 mb-1">Horse Power</div>
+                      <div className="font-bold text-xl text-gray-900">{heli.horsepower}</div>
+                    </div>
+                  </div>
+
+                  <div className="mb-8 text-center p-4 bg-gray-50 rounded-xl">
+                    <div className="text-sm text-gray-500 mb-1">Payload</div>
+                    <div className="font-bold text-2xl text-gray-900">{heli.payload}</div>
                   </div>
 
                   <div className="mb-8">
@@ -127,13 +140,6 @@ const Fleet = () => {
                       ))}
                     </div>
                   </div>
-                  
-                  <button 
-                    onClick={() => setIsHX50ModalOpen(true)}
-                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-4 rounded-xl font-semibold text-lg transition-all transform hover:scale-[1.02] shadow-lg"
-                  >
-                    Discover HX50 Details
-                  </button>
                 </div>
               </div>
             ))}

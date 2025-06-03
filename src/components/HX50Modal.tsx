@@ -72,18 +72,26 @@ const HX50Modal = ({ isOpen, onClose }: HX50ModalProps) => {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             <div className="text-center p-4 bg-blue-50 rounded-xl">
               <div className="text-sm text-gray-500 mb-1">Passengers</div>
               <div className="font-bold text-xl text-gray-900">5</div>
             </div>
             <div className="text-center p-4 bg-blue-50 rounded-xl">
-              <div className="text-sm text-gray-500 mb-1">Range</div>
-              <div className="font-bold text-xl text-gray-900">400+ nm</div>
+              <div className="text-sm text-gray-500 mb-1">Max Range</div>
+              <div className="font-bold text-xl text-gray-900">700 nm</div>
             </div>
             <div className="text-center p-4 bg-blue-50 rounded-xl">
-              <div className="text-sm text-gray-500 mb-1">Speed</div>
-              <div className="font-bold text-xl text-gray-900">140+ kts</div>
+              <div className="text-sm text-gray-500 mb-1">Cruise Speed</div>
+              <div className="font-bold text-xl text-gray-900">140 kts</div>
+            </div>
+            <div className="text-center p-4 bg-blue-50 rounded-xl">
+              <div className="text-sm text-gray-500 mb-1">Horse Power</div>
+              <div className="font-bold text-xl text-gray-900">500 shp</div>
+            </div>
+            <div className="text-center p-4 bg-blue-50 rounded-xl col-span-2">
+              <div className="text-sm text-gray-500 mb-1">Payload</div>
+              <div className="font-bold text-xl text-gray-900">1760 lbs</div>
             </div>
           </div>
 
@@ -101,24 +109,6 @@ const HX50Modal = ({ isOpen, onClose }: HX50ModalProps) => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-6 text-white">
-            <h3 className="text-2xl font-bold mb-4">Technical Excellence</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-2">10+</div>
-                <div className="text-blue-100">Years of R&D</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-2">£50M+</div>
-                <div className="text-blue-100">Investment</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-2">100+</div>
-                <div className="text-blue-100">Team Members</div>
-              </div>
             </div>
           </div>
         </div>

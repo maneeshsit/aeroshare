@@ -10,12 +10,7 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img 
-              src="https://www.hillhelicopters.com/wp-content/uploads/2023/04/Hill-Helicopters-Logo.png" 
-              alt="Hill Helicopters" 
-              className="h-8"
-            />
-            <span className="text-xl font-bold text-gray-900">Hill Helicopters</span>
+            <span className="text-xl font-bold text-gray-900">Aerospace</span>
           </div>
 
           {/* Desktop Navigation */}

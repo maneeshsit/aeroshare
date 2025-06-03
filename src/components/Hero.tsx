@@ -98,8 +98,7 @@ const Hero = () => {
         {/* Content */}
         <div className="relative z-10 text-center text-white px-6 max-w-5xl mx-auto">
           <h1 className="text-6xl md:text-8xl font-bold mb-8 animate-fade-in">
-            Hill Helicopters
-            <span className="block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mt-4">
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               HX50 Experience
             </span>
           </h1>
