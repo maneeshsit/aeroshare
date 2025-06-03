@@ -23,8 +23,8 @@ const HX50Modal = ({ isOpen, onClose }: HX50ModalProps) => {
     },
     {
       icon: Award,
-      title: "British Engineering Excellence",
-      description: "Designed and manufactured in the UK at Duxford Airfield with precision craftsmanship and cutting-edge technology"
+      title: "Engineering Excellence",
+      description: "Designed and manufactured at Duxford Airfield with precision craftsmanship and cutting-edge technology"
     },
     {
       icon: Settings,

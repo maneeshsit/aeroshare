@@ -42,8 +42,8 @@ const Fleet = () => {
     },
     {
       icon: Award,
-      title: "British Engineering Excellence",
-      description: "Designed and manufactured in the UK at Duxford Airfield with precision craftsmanship and cutting-edge technology"
+      title: "Engineering Excellence",
+      description: "Designed and manufactured at Duxford Airfield with precision craftsmanship and cutting-edge technology"
     },
     {
       icon: Settings,
@@ -72,7 +72,7 @@ const Fleet = () => {
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Meet the world's first commercially certified helicopter with fly-by-wire flight controls. 
-              The HX50 represents a quantum leap in helicopter technology, combining British engineering excellence 
+              The HX50 represents a quantum leap in helicopter technology, combining engineering excellence 
               with revolutionary safety features and autonomous capabilities that redefine what's possible in rotorcraft aviation.
             </p>
           </div>
