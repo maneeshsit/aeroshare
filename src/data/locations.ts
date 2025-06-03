@@ -9,6 +9,7 @@ export const locations = [
   "Coimbatore",
   "Delhi",
   "Guwahati",
+  "Gurugram",
   "Hyderabad",
   "Indore",
   "Jaipur",
