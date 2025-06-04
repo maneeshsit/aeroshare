@@ -42,7 +42,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div key={index} className="text-center group hover:transform hover:-translate-y-2 transition-all duration-300">
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 mb-6 group-hover:shadow-xl transition-shadow">
@@ -65,28 +65,6 @@ const Services = () => {
               </button>
             </div>
           ))}
-        </div>
-
-        <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-8 md:p-12 text-white text-center">
-          <h3 className="text-3xl font-bold mb-4">Pioneering the Future of Aviation</h3>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            With over a decade of research and development, Hill Helicopters is revolutionizing 
-            helicopter technology with the world's first fly-by-wire commercial helicopter.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <div className="text-4xl font-bold mb-2">10+</div>
-              <div className="text-blue-100">Years of R&D</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">£50M+</div>
-              <div className="text-blue-100">Investment</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">100+</div>
-              <div className="text-blue-100">Team Members</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
