@@ -1,3 +1,4 @@
+
 import { Calendar, MapPin, Users } from 'lucide-react';
 import { useState } from 'react';
 import HX50Modal from './HX50Modal';
@@ -106,16 +107,10 @@ const Hero = () => {
           <p className="text-xl md:text-2xl mb-10 text-gray-200 max-w-4xl mx-auto leading-relaxed animate-fade-in">
             Experience the future of helicopter aviation with the revolutionary HX50. 
             The world's first commercially certified helicopter with fly-by-wire flight controls, 
-            combining British engineering excellence with cutting-edge autonomous technology.
+            combining engineering excellence with cutting-edge autonomous technology.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16 animate-fade-in">
-            <button 
-              onClick={() => setIsHX50ModalOpen(true)}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-xl text-lg font-semibold transition-all transform hover:scale-105 shadow-xl"
-            >
-              Discover HX50
-            </button>
             <button 
               onClick={() => setIsVideoModalOpen(true)}
               className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-10 py-5 rounded-xl text-lg font-semibold transition-all transform hover:scale-105 backdrop-blur-sm"

@@ -1,5 +1,6 @@
+
 export const locations = [
-  // Existing Indian locations
+  // Indian locations
   "Agra",
   "Ahmedabad", 
   "Amaravati",
@@ -30,7 +31,7 @@ export const locations = [
   "Udaipur",
   "Visakhapatnam",
   
-  // New international destinations
+  // European destinations
   "Amsterdam, Netherlands",
   "Athens, Greece",
   "Barcelona, Spain",
