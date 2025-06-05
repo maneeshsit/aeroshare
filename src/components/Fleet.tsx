@@ -1,4 +1,3 @@
-
 import { Clock, Users, Gauge, Shield, Zap, Award, Plane, Settings, Heart } from 'lucide-react';
 import { useState } from 'react';
 import HX50Modal from './HX50Modal';
@@ -24,8 +23,7 @@ const Fleet = () => {
         "Glass cockpit with advanced avionics",
         "Flight envelope protection",
         "Enhanced safety systems"
-      ],
-      price: "Contact for pricing"
+      ]
     }
   ];
 
@@ -86,9 +84,6 @@ const Fleet = () => {
                     alt={heli.name}
                     className="w-full h-96 object-cover transition-transform duration-500 hover:scale-105"
                   />
-                  <div className="absolute top-6 right-6 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                    {heli.price}
-                  </div>
                   <div className="absolute bottom-6 left-6 text-white">
                     <div className="text-sm text-blue-200 mb-1">World's First</div>
                     <div className="text-lg font-semibold">Fly-by-Wire Helicopter</div>

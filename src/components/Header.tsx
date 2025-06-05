@@ -10,9 +10,14 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent tracking-tight">
-              Aeroshare
-            </span>
+            <div className="flex items-center space-x-2">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">A</span>
+              </div>
+              <span className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent tracking-tight">
+                Aeroshare
+              </span>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -20,11 +25,9 @@ const Header = () => {
             <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
             <a href="#fleet" className="text-gray-700 hover:text-blue-600 transition-colors">HX50</a>
             <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
-            <a href="https://www.hillhelicopters.com/company/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600 transition-colors">Company</a>
-            <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-              Get Quote
-            </button>
+            <a href="#contact" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+              Book Your Flight
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -43,11 +46,9 @@ const Header = () => {
               <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
               <a href="#fleet" className="text-gray-700 hover:text-blue-600 transition-colors">HX50</a>
               <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
-              <a href="https://www.hillhelicopters.com/company/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600 transition-colors">Company</a>
-              <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors w-fit">
-                Get Quote
-              </button>
+              <a href="#contact" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors w-fit">
+                Book Your Flight
+              </a>
             </div>
           </div>
         )}
