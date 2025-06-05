@@ -16,8 +16,6 @@ const Booking = () => {
     message: ''
   });
 
-  const [showDepartureSuggestions, setShowDepartureSuggestions] = useState(false);
-  const [showDestinationSuggestions, setShowDestinationSuggestions] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -59,14 +57,6 @@ const Booking = () => {
     });
   };
 
-  const filteredDepartureLocations = locations.filter(location =>
-    location.toLowerCase().includes(formData.departure.toLowerCase())
-  );
-
-  const filteredDestinationLocations = locations.filter(location =>
-    location.toLowerCase().includes(formData.destination.toLowerCase())
-  );
-
   if (isSubmitted) {
     return (
       <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
@@ -80,7 +70,7 @@ const Booking = () => {
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Booking Request Submitted!</h2>
               <p className="text-lg text-gray-600 mb-6">
-                Thank you for your interest in Hill Helicopters. Our team will contact you within 24 hours to confirm your booking and arrange payment.
+                Thank you for your interest in Aeroshare. Our team will contact you within 24 hours to confirm your booking and arrange payment.
               </p>
               <p className="text-sm text-gray-500">
                 Reference: HX50-{Date.now().toString().slice(-6)}
@@ -108,72 +98,46 @@ const Booking = () => {
         <div className="max-w-4xl mx-auto">
           <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div className="space-y-2 relative">
+              <div className="space-y-2">
                 <label className="text-sm font-semibold text-gray-700 flex items-center">
                   <MapPin size={16} className="mr-2 text-blue-600" />
                   Departure Location
                 </label>
-                <input
-                  type="text"
+                <select
                   name="departure"
                   value={formData.departure}
                   onChange={handleChange}
-                  onFocus={() => setShowDepartureSuggestions(true)}
-                  onBlur={() => setTimeout(() => setShowDepartureSuggestions(false), 200)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                  placeholder="Enter departure location"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent bg-white"
                   required
-                />
-                {showDepartureSuggestions && formData.departure && (
-                  <div className="absolute top-full left-0 right-0 bg-white rounded-lg shadow-lg mt-1 max-h-40 overflow-y-auto z-10 border">
-                    {filteredDepartureLocations.slice(0, 5).map((location) => (
-                      <div
-                        key={location}
-                        onClick={() => {
-                          setFormData({...formData, departure: location});
-                          setShowDepartureSuggestions(false);
-                        }}
-                        className="p-3 hover:bg-gray-100 cursor-pointer text-gray-900 text-sm"
-                      >
-                        {location}
-                      </div>
-                    ))}
-                  </div>
-                )}
+                >
+                  <option value="">Select departure location</option>
+                  {locations.map((location) => (
+                    <option key={location} value={location}>
+                      {location}
+                    </option>
+                  ))}
+                </select>
               </div>
 
-              <div className="space-y-2 relative">
+              <div className="space-y-2">
                 <label className="text-sm font-semibold text-gray-700 flex items-center">
                   <MapPin size={16} className="mr-2 text-blue-600" />
                   Destination
                 </label>
-                <input
-                  type="text"
+                <select
                   name="destination"
                   value={formData.destination}
                   onChange={handleChange}
-                  onFocus={() => setShowDestinationSuggestions(true)}
-                  onBlur={() => setTimeout(() => setShowDestinationSuggestions(false), 200)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                  placeholder="Enter destination"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent bg-white"
                   required
-                />
-                {showDestinationSuggestions && formData.destination && (
-                  <div className="absolute top-full left-0 right-0 bg-white rounded-lg shadow-lg mt-1 max-h-40 overflow-y-auto z-10 border">
-                    {filteredDestinationLocations.slice(0, 5).map((location) => (
-                      <div
-                        key={location}
-                        onClick={() => {
-                          setFormData({...formData, destination: location});
-                          setShowDestinationSuggestions(false);
-                        }}
-                        className="p-3 hover:bg-gray-100 cursor-pointer text-gray-900 text-sm"
-                      >
-                        {location}
-                      </div>
-                    ))}
-                  </div>
-                )}
+                >
+                  <option value="">Select destination</option>
+                  {locations.map((location) => (
+                    <option key={location} value={location}>
+                      {location}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div className="space-y-2">
