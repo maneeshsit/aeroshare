@@ -1,5 +1,5 @@
 
-import { Briefcase, Heart, Camera, Shield, Wrench, GraduationCap } from 'lucide-react';
+import { Briefcase, Wrench } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -14,18 +14,6 @@ const Services = () => {
       title: "Maintenance & Support",
       description: "Comprehensive maintenance services and technical support for Hill Helicopters.",
       features: ["Scheduled maintenance", "Technical support", "Parts supply", "Field service"]
-    },
-    {
-      icon: GraduationCap,
-      title: "Training & Certification",
-      description: "Professional pilot training programs for the revolutionary HX50 helicopter.",
-      features: ["Type rating courses", "Simulator training", "Recurrent training", "Instructor certification"]
-    },
-    {
-      icon: Shield,
-      title: "Safety & Innovation",
-      description: "Leading the industry in helicopter safety through cutting-edge technology.",
-      features: ["Fly-by-wire systems", "Autonomous flight", "Safety research", "Technology development"]
     }
   ];
 
@@ -42,7 +30,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <div key={index} className="text-center group hover:transform hover:-translate-y-2 transition-all duration-300">
               <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 mb-6 group-hover:shadow-xl transition-shadow">
