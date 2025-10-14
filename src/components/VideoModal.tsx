@@ -23,7 +23,7 @@ const VideoModal = ({ isOpen, onClose }: VideoModalProps) => {
           <iframe
             width="100%"
             height="100%"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            src="https://www.youtube.com/embed/5_lzA2hDHaw"
             title="HX50 Demo Flight"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
