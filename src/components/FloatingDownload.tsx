@@ -19,8 +19,10 @@ const FloatingDownload = () => {
           <X className="h-4 w-4" />
         </Button>
         
-        <div className="text-foreground font-bold text-lg whitespace-nowrap">
-          DOWNLOAD THE
+        <div className="font-bold text-lg whitespace-nowrap">
+          <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            DOWNLOAD THE APP
+          </span>
         </div>
         
         <div className="flex flex-col gap-3">
