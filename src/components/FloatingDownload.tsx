@@ -21,7 +21,7 @@ const FloatingDownload = () => {
         
         <div className="font-bold text-lg whitespace-nowrap">
           <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-            DOWNLOAD THE APP
+            Download the App
           </span>
         </div>
         
