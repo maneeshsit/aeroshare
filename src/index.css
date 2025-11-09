@@ -34,6 +34,9 @@
 
     --radius: 0.5rem;
 
+    --brand-primary: 221 83% 53%;
+    --brand-secondary: 189 94% 43%;
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -87,6 +90,9 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --brand-primary: 221 83% 53%;
+    --brand-secondary: 189 94% 43%;
   }
 }
 
