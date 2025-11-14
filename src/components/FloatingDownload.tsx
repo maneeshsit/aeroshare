@@ -19,7 +19,7 @@ const FloatingDownload = () => {
           <X className="h-4 w-4" />
         </Button>
         
-        <div className="font-bold text-lg text-foreground whitespace-nowrap">
+        <div className="text-base font-semibold text-foreground whitespace-nowrap">
           Download the App
         </div>
         
