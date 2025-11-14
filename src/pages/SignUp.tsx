@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,23 +6,15 @@ import { Label } from '@/components/ui/label';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 
-const Login = () => {
+const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  useEffect(() => {
-    // Check if user is already logged in
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        navigate('/');
-      }
-    });
-  }, [navigate]);
-
-  const handleGoogleLogin = async () => {
+  const handleGoogleSignUp = async () => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
@@ -41,24 +33,46 @@ const Login = () => {
     }
   };
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (password !== confirmPassword) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Passwords do not match"
+      });
+      return;
+    }
+
+    if (password.length < 6) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Password must be at least 6 characters"
+      });
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { error } = await supabase.auth.signUp({
         email,
-        password
+        password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/`
+        }
       });
 
       if (error) throw error;
 
       toast({
         title: "Success!",
-        description: "Logged in successfully"
+        description: "Account created successfully. You can now log in."
       });
       
-      navigate('/');
+      navigate('/login');
     } catch (error: any) {
       toast({
         variant: "destructive",
@@ -85,21 +99,21 @@ const Login = () => {
           </div>
         </div>
 
-        {/* Login Form Card */}
+        {/* Sign Up Form Card */}
         <div className="bg-card border border-border rounded-2xl p-8 shadow-lg">
-          {/* Google Login Button */}
+          {/* Google Sign Up Button */}
           <Button
             type="button"
             variant="outline"
             className="w-full mb-6 h-12 text-base font-normal"
-            onClick={handleGoogleLogin}
+            onClick={handleGoogleSignUp}
           >
             <img
               src="https://www.google.com/favicon.ico"
               alt="Google"
               className="w-5 h-5 mr-2"
             />
-            Log in with Google
+            Sign up with Google
           </Button>
 
           {/* Divider */}
@@ -113,7 +127,7 @@ const Login = () => {
           </div>
 
           {/* Email and Password Form */}
-          <form onSubmit={handleLogin}>
+          <form onSubmit={handleSignUp}>
             <div className="space-y-4 mb-6">
               {/* Email Field */}
               <div>
@@ -133,17 +147,9 @@ const Login = () => {
 
               {/* Password Field */}
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <Label htmlFor="password" className="text-foreground font-semibold">
-                    Password
-                  </Label>
-                  <Link
-                    to="/forgot-password"
-                    className="text-sm text-brand-primary hover:text-brand-primary/80 transition-colors"
-                  >
-                    Forgot password?
-                  </Link>
-                </div>
+                <Label htmlFor="password" className="text-foreground font-semibold mb-2 block">
+                  Password
+                </Label>
                 <Input
                   id="password"
                   type="password"
@@ -154,26 +160,42 @@ const Login = () => {
                   required
                 />
               </div>
+
+              {/* Confirm Password Field */}
+              <div>
+                <Label htmlFor="confirmPassword" className="text-foreground font-semibold mb-2 block">
+                  Confirm Password
+                </Label>
+                <Input
+                  id="confirmPassword"
+                  type="password"
+                  placeholder="Confirm your password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  className="h-12 text-base"
+                  required
+                />
+              </div>
             </div>
 
-            {/* Login Button */}
+            {/* Sign Up Button */}
             <Button
               type="submit"
               className="w-full h-12 text-base font-semibold bg-foreground text-background hover:bg-foreground/90 mb-6"
               disabled={loading}
             >
-              {loading ? 'Logging in...' : 'Log In'}
+              {loading ? 'Creating Account...' : 'Sign Up'}
             </Button>
           </form>
 
-          {/* Sign Up Link */}
+          {/* Login Link */}
           <div className="text-center text-sm">
-            <span className="text-muted-foreground">Don't have an account? </span>
+            <span className="text-muted-foreground">Already have an account? </span>
             <Link
-              to="/signup"
+              to="/login"
               className="text-brand-primary hover:text-brand-primary/80 font-semibold transition-colors"
             >
-              Sign up
+              Log in
             </Link>
           </div>
         </div>
@@ -182,4 +204,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
