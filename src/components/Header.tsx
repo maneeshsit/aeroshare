@@ -62,9 +62,6 @@ const Header = () => {
             <a href="#home" className="text-muted-foreground hover:text-brand-primary transition-colors">Home</a>
             <a href="#fleet" className="text-muted-foreground hover:text-brand-primary transition-colors">HX50</a>
             <a href="#services" className="text-muted-foreground hover:text-brand-primary transition-colors">Services</a>
-            <a href="#contact" className="bg-brand-primary text-white px-6 py-2 rounded-lg hover:bg-brand-primary/90 transition-colors">
-              Book Your Flight
-            </a>
             {user ? (
               <button
                 onClick={handleLogout}
@@ -78,6 +75,9 @@ const Header = () => {
                 Login
               </a>
             )}
+            <a href="#contact" className="bg-brand-primary text-white px-6 py-2 rounded-lg hover:bg-brand-primary/90 transition-colors">
+              Book Your Flight
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -96,9 +96,6 @@ const Header = () => {
               <a href="#home" className="text-muted-foreground hover:text-brand-primary transition-colors">Home</a>
               <a href="#fleet" className="text-muted-foreground hover:text-brand-primary transition-colors">HX50</a>
               <a href="#services" className="text-muted-foreground hover:text-brand-primary transition-colors">Services</a>
-              <a href="#contact" className="bg-brand-primary text-white px-6 py-2 rounded-lg hover:bg-brand-primary/90 transition-colors w-fit">
-                Book Your Flight
-              </a>
               {user ? (
                 <button
                   onClick={handleLogout}
@@ -112,6 +109,9 @@ const Header = () => {
                   Login
                 </a>
               )}
+              <a href="#contact" className="bg-brand-primary text-white px-6 py-2 rounded-lg hover:bg-brand-primary/90 transition-colors w-fit">
+                Book Your Flight
+              </a>
             </div>
           </div>
         )}
