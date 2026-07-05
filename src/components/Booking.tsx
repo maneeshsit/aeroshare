@@ -205,13 +205,12 @@ const Booking = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 >
-                  <option value="1">1 Passenger</option>
-                  <option value="2">2 Passengers</option>
-                  <option value="3">3 Passengers</option>
-                  <option value="4">4 Passengers</option>
-                  <option value="5">5 Passengers</option>
-                  <option value="6">6 Passengers</option>
-                  <option value="7">7 Passengers</option>
+                  {Array.from({ length: AIRCRAFT_CAPACITY }, (_, i) => i + 1).map((n) => (
+                    <option key={n} value={n}>
+                      {n} {n === 1 ? 'Passenger' : 'Passengers'}
+                    </option>
+                  ))}
+
                 </select>
               </div>
 
