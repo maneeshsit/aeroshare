@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { Calendar, MapPin, Users, Clock } from 'lucide-react';
 import { locations } from '../data/locations';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from '@/hooks/use-toast';
+
+const AIRCRAFT_CAPACITY = 4; // Max passengers excluding pilot
+
 
 const Booking = () => {
   const [formData, setFormData] = useState({
@@ -21,15 +26,34 @@ const Booking = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const pax = Number(formData.passengers);
+    if (pax > AIRCRAFT_CAPACITY) {
+      toast({
+        title: 'Too many passengers',
+        description: `Our HX50 seats a maximum of ${AIRCRAFT_CAPACITY} passengers (excluding the pilot). Please reduce the passenger count.`,
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    console.log('Booking submitted:', formData);
-    
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
+    const { data, error } = await supabase.functions.invoke('append-booking', {
+      body: formData,
+    });
+
     setIsSubmitting(false);
+
+    if (error || (data as any)?.error) {
+      toast({
+        title: 'Booking failed',
+        description: (data as any)?.error || error?.message || 'Please try again.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsSubmitted(true);
     
     // Reset form after 3 seconds
@@ -181,13 +205,12 @@ const Booking = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 >
-                  <option value="1">1 Passenger</option>
-                  <option value="2">2 Passengers</option>
-                  <option value="3">3 Passengers</option>
-                  <option value="4">4 Passengers</option>
-                  <option value="5">5 Passengers</option>
-                  <option value="6">6 Passengers</option>
-                  <option value="7">7 Passengers</option>
+                  {Array.from({ length: AIRCRAFT_CAPACITY }, (_, i) => i + 1).map((n) => (
+                    <option key={n} value={n}>
+                      {n} {n === 1 ? 'Passenger' : 'Passengers'}
+                    </option>
+                  ))}
+
                 </select>
               </div>
 
