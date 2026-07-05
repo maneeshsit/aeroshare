@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { Calendar, MapPin, Users, Clock } from 'lucide-react';
 import { locations } from '../data/locations';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from '@/hooks/use-toast';
+
+const AIRCRAFT_CAPACITY = 4; // Max passengers excluding pilot
+
 
 const Booking = () => {
   const [formData, setFormData] = useState({
@@ -21,15 +26,34 @@ const Booking = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const pax = Number(formData.passengers);
+    if (pax > AIRCRAFT_CAPACITY) {
+      toast({
+        title: 'Too many passengers',
+        description: `Our HX50 seats a maximum of ${AIRCRAFT_CAPACITY} passengers (excluding the pilot). Please reduce the passenger count.`,
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    console.log('Booking submitted:', formData);
-    
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
+    const { data, error } = await supabase.functions.invoke('append-booking', {
+      body: formData,
+    });
+
     setIsSubmitting(false);
+
+    if (error || (data as any)?.error) {
+      toast({
+        title: 'Booking failed',
+        description: (data as any)?.error || error?.message || 'Please try again.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsSubmitted(true);
     
     // Reset form after 3 seconds
